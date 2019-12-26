@@ -1,3 +1,7 @@
 export interface State {
-    data: string[];
+    fetching: boolean;
+    result: {
+        httpStatus?: number;
+        text?: string;
+    };
 }
