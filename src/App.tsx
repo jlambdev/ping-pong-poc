@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSync } from '@fortawesome/free-solid-svg-icons';
 
-import { PingButton, Wrapper, PongSuccess } from './styled';
+import { PingButton, Wrapper, PongSuccess, PongFailure } from './styled';
 import { ping } from './redux/actions';
 import { State } from './redux/types';
 
@@ -22,7 +22,7 @@ export default function App(): JSX.Element {
         );
     }
 
-    if (!result.httpStatus) {
+    if (!result.text) {
         return (
             <Wrapper>
                 <PingButton onClick={(): AnyAction => dispatch(ping())}>
@@ -32,9 +32,11 @@ export default function App(): JSX.Element {
         );
     }
 
+    const Pong = result.httpStatus === 200 ? PongSuccess : PongFailure;
+
     return (
         <Wrapper>
-            <PongSuccess>{result.text}</PongSuccess>
+            <Pong>{result.text}</Pong>
         </Wrapper>
     );
 }

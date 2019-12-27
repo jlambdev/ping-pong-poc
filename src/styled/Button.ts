@@ -8,6 +8,7 @@ const PingButton = styled.button`
     width: 200px;
 
     font-size: 2em;
+    font-family: Arial, Helvetica, sans-serif;
     transition: background-color 0.3s, color 0.3s;
 
     :focus {
