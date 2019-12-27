@@ -1,20 +1,14 @@
 const {
-    REACT_APP_YNAB_ACCESS_TOKEN,
-    REACT_APP_BUDGET_ID_EUR,
-    REACT_APP_BUDGET_ID_GBP,
-    REACT_APP_BUDGET_ID_USD,
+    REACT_APP_ENABLE_API,
+    REACT_APP_API_URI,
 } = process.env;
 
 const config: {
-    ACCESS_TOKEN: string;
-    BUDGET_ID_EUR: string;
-    BUDGET_ID_GBP: string;
-    BUDGET_ID_USD: string;
+    ENABLE_API: string;
+    API_URI: string;
 } = {
-    ACCESS_TOKEN: REACT_APP_YNAB_ACCESS_TOKEN || '',
-    BUDGET_ID_EUR: REACT_APP_BUDGET_ID_EUR || '',
-    BUDGET_ID_GBP: REACT_APP_BUDGET_ID_GBP || '',
-    BUDGET_ID_USD: REACT_APP_BUDGET_ID_USD || '',
+    ENABLE_API: REACT_APP_ENABLE_API || '',
+    API_URI: REACT_APP_API_URI || '',
 };
 
 export default config;
