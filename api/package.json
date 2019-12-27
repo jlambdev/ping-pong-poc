@@ -2,7 +2,6 @@
     "name": "ping-pong-poc-api",
     "version": "0.1.0",
     "private": false,
-    "license": "MIT",
     "dependencies": {
         "typescript": "^3.7.2"
     },
