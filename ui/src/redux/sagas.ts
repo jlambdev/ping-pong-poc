@@ -1,4 +1,4 @@
-import { takeLatest, delay, put, call, CallEffect } from 'redux-saga/effects';
+import { takeLatest, delay, put, call } from 'redux-saga/effects';
 
 import config from '../config/environment';
 
@@ -9,11 +9,16 @@ const DEFAULT_RESPONSE = { httpStatus: 200, text: 'PONG' };
 
 function* sendPing(): Generator {
     if (config.ENABLE_API && !!config.API_URI) {
+        yield delay(500);
         const response: Response | any = yield call(() =>
-            fetch(config.API_URI),
+            fetch(`${config.API_URI}/ping`, {
+                mode: 'cors',
+                method: 'GET',
+                referrerPolicy: 'no-referrer',
+            }),
         );
 
-        if (!response.httpStatus) {
+        if (!response.status) {
             throw Error(
                 'There was a problem fetching a response from the Ping Pong API',
             );
@@ -21,8 +26,8 @@ function* sendPing(): Generator {
 
         yield put(
             pong({
-                httpStatus: response.httpStatus,
-                text: response.message,
+                httpStatus: response.status,
+                text: 'PONG',
             }),
         );
         yield delay(2000);
