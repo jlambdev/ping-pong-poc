@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-const Button = styled.button`
+const PingButton = styled.button`
     background-color: silver;
     border: none;
     border-radius: 100%;
@@ -19,4 +19,4 @@ const Button = styled.button`
     }
 `;
 
-export { Button };
+export { PingButton };
